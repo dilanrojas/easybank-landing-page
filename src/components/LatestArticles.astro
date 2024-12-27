@@ -1,0 +1,161 @@
+---
+import { Image } from "astro:assets"
+---
+
+<section class="latest-articles">
+  <div class="latest-articles-wrapper wrapper">
+    <header class="latest-articles-header">
+      <h2>Latest Articles</h2>
+    </header>
+    <section class="articles">
+      <a href="#" class="article">
+        <article>
+          <picture class="article-picture flow">
+            <Image
+              src="/image-currency.jpg"
+              alt="Currency"
+              width="264"
+              height="160"
+            />
+            <span>By Claire Robinson</span>
+          </picture>
+          <h3>Receive money in any currency with no fees</h3>
+          <p>
+            The world is getting smaller and we’re becoming more mobile. So why should you be forced to only receive money in a single …
+          </p>
+        </article>
+      </a>
+      <a href="#" class="article">
+        <article>
+          <picture class="article-picture flow">
+            <Image
+              src="/image-restaurant.jpg"
+              alt="Restaurant"
+              width="264"
+              height="160"
+            />
+            <span>By Wilson Hutton</span>
+          </picture>
+          <h3>Treat yourself without worrying about money</h3>
+          <p>
+            Our simple budgeting feature allows you to separate out your spending and set realistic limits each month. That means you …
+          </p>
+        </article>
+      </a>
+      <a href="#" class="article">
+        <article>
+          <picture class="article-picture flow">
+            <Image
+              src="/image-plane.jpg"
+              alt="Plane"
+              width="264"
+              height="160"
+            />
+            <span>By Wilson Hutton</span>
+          </picture>
+          <h3>Take your Easybank card wherever you go</h3>
+          <p>
+            We want you to enjoy your travels. This is why we don’t charge any fees on purchases while you’re abroad. We’ll even show you …
+          </p>
+        </article>
+      </a>
+      <a href="#" class="article">
+        <article>
+          <picture class="article-picture flow">
+            <Image
+              src="/image-confetti.jpg"
+              alt="Confetti"
+              width="264"
+              height="160"
+            />
+            <span>By Claire Robinson</span>
+          </picture>
+          <h3>Our invite-only Beta accounts are now live!</h3>
+          <p>
+            After a lot of hard work by the whole team, we’re excited to launch our closed beta. It’s easy to request an invite through the site …
+          </p>
+        </article>
+      </a>
+    </section>
+  </div>
+</section>
+
+<style>
+  .latest-articles {
+    padding-block: 6rem
+  }
+
+  .latest-articles-header {
+    margin-bottom: 3.5rem
+  }
+
+  .latest-articles-header h2 {
+    font-size: 2.22rem;
+  }
+
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .article { transition: transform .1s ease-in-out, opacity .1s ease-in-out }
+
+  .article:hover { transform: translateY(-7px); opacity: .8 }
+
+  .article-picture {
+    margin-bottom: .6rem;
+    display: block;
+  }
+
+  .article-picture img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .article-picture span {
+    display: block;
+    font-size: .65rem;
+    color: var(--gsh-blue)
+  }
+
+  .article span,
+  .article h3,
+  .article p {
+    padding-inline: 1.7rem;
+  }
+
+  .article h3 {
+    margin-bottom: .6rem;
+    font-size: .95rem;
+  }
+
+  .article p {
+    font-size: .78rem;
+  }
+
+  @media (width <= 868px) {
+    .articles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width <= 768px) {
+    .latest-articles-header {
+      text-align: center;
+    }
+  }
+
+  @media (width <= 468px) {
+    .latest-articles-header {
+      text-align: center;
+    }
+
+    .articles {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+import Logo from "@/assets/Logo.astro"
+import RequestButton from "./RequestButton.astro"
+import IconFacebook from "@/assets/IconFacebook.astro"
+import IconYoutube from "@/assets/IconYoutube.astro"
+import IconTwitter from "@/assets/IconTwitter.astro"
+import IconPinterest from "@/assets/IconPinterest.astro"
+import IconInstagram from "@/assets/IconInstagram.astro"
+---
+
+<footer class="pm-footer">
+  <div class="pm-footer-wrapper wrapper">
+
+    <div class="social">
+      <picture class="logo-wrapper">
+        <Logo />
+      </picture>
+      <nav class="social-nav">
+        <ul class="social-nav-list">
+          <li><a href="#"><IconFacebook /></a></li>
+          <li><a href="#"><IconYoutube /></a></li>
+          <li><a href="#"><IconTwitter /></a></li>
+          <li><a href="#"><IconPinterest /></a></li>
+          <li><a href="#"><IconInstagram /></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="pm-footer-nav">
+      <ul class="pm-footer-nav-list">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </nav>
+
+    <div class="request-and-copy">
+      <RequestButton />
+      <span>© Easybank. All Rights Reserved</span>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .pm-footer {
+    background-color: var(--dk-blue);
+    color: var(--white);
+    padding-block: 3rem
+  }
+
+  .pm-footer-wrapper {
+    display: grid;
+    grid-template-columns: 270px 1fr 280px;
+  }
+
+  .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .social-nav-list {
+    display: flex;
+    gap: 1rem
+  }
+
+  .pm-footer-nav-list {
+    columns: 2;
+    max-width: 35ch;
+    line-height: 2.3;
+  }
+
+  .request-and-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+  }
+
+  .request-and-copy span {
+    display: block;
+    color: var(--gsh-blue);
+  }
+
+  .pm-footer a {
+    transition: color .1s ease-in-out
+  }
+
+  .pm-footer a:hover {
+    color: var(--lime-green)
+  }
+
+  @media (width <= 968px) {
+    .pm-footer-wrapper {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 0rem
+    }
+
+    .pm-footer-nav-list {
+      max-width: 100%;
+    }
+
+    .request-and-copy {
+      align-items: center;
+      grid-column: span 2;
+      gap: 1.5rem
+    }
+  }
+
+  @media (width <= 568px) {
+    .pm-footer-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center  ;
+    }
+
+    .pm-footer-nav-list {
+      columns: 1
+    }
+
+    .social {
+      align-items: center;
+      gap: 1.5rem;
+    }
+  }
+</style>

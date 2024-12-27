@@ -1,0 +1,189 @@
+---
+import Logo from "@/assets/Logo.astro"
+import RequestButton from "@/components/RequestButton.astro"
+---
+
+<header class="pm-header">
+  <div class="pm-header-wrapper wrapper">
+
+    <div class="start">
+      <picture class="logo-wrapper">
+        <Logo />
+      </picture>
+    </div>
+
+    <div class="center">
+      <nav class="pm-nav">
+        <ul class="pm-nav-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="end">
+      <span class="request-button">
+        <RequestButton />
+      </span>
+
+      <div class="hamburguer-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<style>
+  .pm-header {
+    background-color: var(--white);
+    height: 70px;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 3;
+    position: relative;
+  }
+
+  .pm-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pm-nav-list {
+    display: flex;
+    gap: 2rem;
+    height: 70px;
+  }
+
+  .pm-nav a {
+    color: var(--gsh-blue);
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: color .15s ease-in-out;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      background: linear-gradient(to right, var(--lime-green), var(--bt-cyan));
+      transition: width .15s ease-in-out
+    }
+  }
+
+  .pm-nav a:hover {
+    color: var(--dk-blue);
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  .end {
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburguer-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: .29rem
+  }
+
+  .hamburguer-menu .bar {
+    width: 30px;
+    height: 2.5px;
+    background-color: var(--gsh-blue);
+  }
+
+  @media (width <= 850px) {
+    .pm-nav {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 600px;
+      left: 0;
+      top: 100%;
+      z-index: 90;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+      padding: 1.5rem;
+
+      opacity: 0;
+      transition: opacity .1s ease-in-out, display .1s ease-in-out allow-discrete;
+    }
+
+
+    .pm-nav.open {
+      display: block;
+
+      opacity: 1;
+      transition: opacity .1s ease-in-out;
+      @starting-style { opacity: 0 }
+    }
+
+    .pm-nav-list {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      gap: 1.5rem;
+      height: 55%;
+      border-radius: 5px;
+    }
+
+    .pm-nav a {
+      color: black;
+    }
+
+    .pm-nav a:hover {
+      color: var(--gsh-blue);
+
+      &::before {
+        width: 0;
+      }
+    }
+
+    .hamburguer-menu { display: flex }
+    
+    .hamburguer-menu .bar {
+      transition: opacity .1s ease-in-out, transform .1s ease-in-out
+    }
+
+    .hamburguer-menu.open .bar {
+      &:nth-child(1) { transform: rotate(45deg) translate(5px, 5px) }
+      &:nth-child(2) { opacity: 0 }
+      &:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px) }
+    }
+
+    .request-button { display: none }
+  }
+</style>
+
+<script defer>
+  const hamburguerMenu = document.querySelector('.hamburguer-menu')
+  const pmNav = document.querySelector('.pm-nav')
+
+  hamburguerMenu.addEventListener('click', () => {
+    pmNav.classList.toggle('open')
+    pmNav.classList.toggle('no-scroll')
+    hamburguerMenu.classList.toggle('open')
+  })
+</script>

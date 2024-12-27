@@ -1,0 +1,117 @@
+---
+import { Image } from "astro:assets"
+import RequestButton from "@/components/RequestButton.astro"
+---
+
+<section class="hero-section">
+  <div class="hero-section-wrapper wrapper">
+    <article class="hero-article flow" style="--flow-space: 2rem">
+      <h1>Next generation digital banking</h1>
+      <p>Take your financial life online. Your Easybank account will be a one-stop-shop for spending, saving, budgeting, investing, and much more.</p>
+      <RequestButton />
+    </article>
+  </div>
+
+  <picture class="hero-images">
+    <Image
+      class="bg-intro-desktop"
+      src="/bg-intro-desktop.svg"
+      alt="Background image of mobile phones showing Easybank app"
+      width="1271"
+      height="1034"
+    />
+    <Image
+      class="bg-intro-mobile"
+      src="/bg-intro-mobile.svg"
+      alt="Background image of mobile phones showing Easybank app"
+      width="375"
+      height="423"
+    />
+    <Image
+      class="image-mockups"
+      src="/image-mockups.png"
+      alt="Mockups of digital devices showing Easybank app"
+      width="767"
+      height="939"
+    />
+  </picture>
+</section>
+
+<style>
+  .hero-section {
+    padding-block: 9rem;
+  }
+
+  .hero-article {
+    font-size: 1.1rem;
+    max-width: 42ch;
+  }
+
+  .hero-article h1 {
+    font-size: 3rem;
+  }
+
+  .hero-images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(550px, -230px);
+  }
+
+  .hero-images img {
+    position: absolute
+  }
+
+  .image-mockups {
+    margin-top: 10rem
+  }
+
+  .bg-intro-mobile { display: none }
+
+  @media (width <= 1120px) {
+    .hero-images { transform: translate(700px, -230px) }
+  }
+
+  @media (width <= 768px) {
+    .bg-intro-mobile {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      height: 600px;
+    }
+
+    .image-mockups {
+      margin-top: 2rem;
+      width: min(100%, 375px);
+      height: auto;
+    }
+
+    .bg-intro-desktop { display: none }
+
+    .hero-images {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: translate(0px, -100px);
+    }
+
+    .hero-images img {
+      top: 0;
+    }
+
+    .hero-article {
+      font-size: 1rem;
+      text-align: center;
+      justify-content: center;
+      margin-inline: auto;
+      padding-top: 12rem
+    }
+
+    .hero-article h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

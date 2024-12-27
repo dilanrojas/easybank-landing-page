@@ -1,0 +1,82 @@
+---
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" />
+		<title>Frontend Mentor | Easybank landing page</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+	:root {
+		--ff-html: "Public Sans", serif;
+
+		--dk-blue: hsl(233, 26%, 24%);
+		--lime-green: hsl(136, 65%, 51%);
+		--bt-cyan: hsl(192, 70%, 51%);
+
+		--gsh-blue: hsl(233, 8%, 62%);
+		--lg-gsh-blue: hsl(220, 16%, 96%);
+		--v-lg-gray: hsl(0, 0%, 98%);
+		--white: hsl(0, 0%, 100%);
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	*, *::before, *::after { box-sizing: border-box }
+
+	html {
+		font-family: var(--ff-html);
+		font-size: 18px;
+		line-height: 1.4;
+		color: var(--dk-blue);
+		overflow-x: hidden;
+		scrollbar-gutter: stable;
+	}
+
+	html:has(.no-scroll) { overflow: hidden }
+
+	body { overflow-x: hidden }
+
+	ul, ol { list-style: none }
+
+	a {
+		text-decoration: none;
+		color: currentColor
+	}
+
+	img {
+		display: block;
+	}
+
+	h1, h2, h3, h4, h5, h6 { line-height: 1.15; font-weight: 400; }
+
+	p { color:  var(--gsh-blue) }
+
+	/* Utility classes */
+	.wrapper {
+		--width: var(--custom-width, 1280px);
+		--padding: 1.5rem;
+
+		width: min(var(--width), 100% - var(--padding) * 2);
+		margin-inline: auto;
+	}
+
+	.flow > * + * { margin-top: var(--flow-space, 1.5rem) }
+</style>
